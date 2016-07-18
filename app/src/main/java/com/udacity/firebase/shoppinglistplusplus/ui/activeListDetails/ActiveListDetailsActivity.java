@@ -16,6 +16,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.Restaurant;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingList;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingListItem;
 import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
@@ -30,7 +31,8 @@ public class ActiveListDetailsActivity extends BaseActivity {
     private ActiveListItemAdapter mActiveListItemAdapter;
     private ListView mListView;
     private String mListId;
-    private ShoppingList mShoppingList;
+//    private ShoppingList mShoppingList;
+    private Restaurant mRestaurant;
     private ValueEventListener mActiveListRefListener;
 
     @Override
@@ -88,9 +90,12 @@ public class ActiveListDetailsActivity extends BaseActivity {
                  * finish() the activity if the list is null (list was removed or unshared by it's owner
                  * while current user is in the list details activity)
                  */
-                ShoppingList shoppingList = snapshot.getValue(ShoppingList.class);
 
-                if (shoppingList == null) {
+//                ShoppingList shoppingList = snapshot.getValue(ShoppingList.class);
+                Restaurant restaurant = snapshot.getValue(Restaurant.class);
+
+
+                if (restaurant == null) {
                     finish();
                     /**
                      * Make sure to call return, otherwise the rest of the method will execute,
@@ -98,18 +103,22 @@ public class ActiveListDetailsActivity extends BaseActivity {
                      */
                     return;
                 }
-                mShoppingList = shoppingList;
+//                mShoppingList = shoppingList;
+                mRestaurant = restaurant;
+
                 /**
                  * Pass the shopping list to the adapter if it is not null.
                  * We do this here because mShoppingList is null when first created.
                  */
-                mActiveListItemAdapter.setShoppingList(mShoppingList);
+//                mActiveListItemAdapter.setShoppingList(mShoppingList);
+                mActiveListItemAdapter.setRestaurant(mRestaurant);
 
                 /* Calling invalidateOptionsMenu causes onCreateOptionsMenu to be called */
                 invalidateOptionsMenu();
 
                 /* Set title appropriately. */
-                setTitle(shoppingList.getListName());
+//                setTitle(shoppingList.getListName());
+                setTitle(restaurant.getName());
             }
 
             @Override
@@ -255,7 +264,8 @@ public class ActiveListDetailsActivity extends BaseActivity {
      */
     public void removeList() {
         /* Create an instance of the dialog fragment and show it */
-        DialogFragment dialog = RemoveListDialogFragment.newInstance(mShoppingList, mListId);
+//        DialogFragment dialog = RemoveListDialogFragment.newInstance(mShoppingList, mListId);
+        DialogFragment dialog = RemoveListDialogFragment.newInstance(mRestaurant, mListId);
         dialog.show(getFragmentManager(), "RemoveListDialogFragment");
     }
 
@@ -264,7 +274,8 @@ public class ActiveListDetailsActivity extends BaseActivity {
      */
     public void showAddListItemDialog(View view) {
         /* Create an instance of the dialog fragment and show it */
-        DialogFragment dialog = AddListItemDialogFragment.newInstance(mShoppingList, mListId);
+//        DialogFragment dialog = AddListItemDialogFragment.newInstance(mShoppingList, mListId);
+        DialogFragment dialog = AddListItemDialogFragment.newInstance(mRestaurant, mListId);
         dialog.show(getFragmentManager(), "AddListItemDialogFragment");
     }
 
@@ -273,7 +284,8 @@ public class ActiveListDetailsActivity extends BaseActivity {
      */
     public void showEditListNameDialog() {
         /* Create an instance of the dialog fragment and show it */
-        DialogFragment dialog = EditListNameDialogFragment.newInstance(mShoppingList, mListId);
+//        DialogFragment dialog = EditListNameDialogFragment.newInstance(mShoppingList, mListId);
+        DialogFragment dialog = EditListNameDialogFragment.newInstance(mRestaurant, mListId);
         dialog.show(this.getFragmentManager(), "EditListNameDialogFragment");
     }
 
@@ -284,8 +296,8 @@ public class ActiveListDetailsActivity extends BaseActivity {
      */
     public void showEditListItemNameDialog(String itemName, String itemId) {
         /* Create an instance of the dialog fragment and show it */
-        DialogFragment dialog = EditListItemNameDialogFragment.newInstance(mShoppingList, itemName,
-                itemId, mListId);
+//        DialogFragment dialog = EditListItemNameDialogFragment.newInstance(mShoppingList, itemName,  itemId, mListId);
+        DialogFragment dialog = EditListItemNameDialogFragment.newInstance(mRestaurant, itemName,  itemId, mListId);
 
         dialog.show(this.getFragmentManager(), "EditListItemNameDialogFragment");
     }
