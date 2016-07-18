@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.firebase.client.Firebase;
 import com.firebase.client.ServerValue;
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.Restaurant;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingList;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
@@ -21,11 +22,18 @@ public class EditListNameDialogFragment extends EditListDialogFragment {
     /**
      * Public static constructor that creates fragment and passes a bundle with data into it when adapter is created
      */
-    public static EditListNameDialogFragment newInstance(ShoppingList shoppingList, String listId) {
+    /*public static EditListNameDialogFragment newInstance(ShoppingList shoppingList, String listId) {
         EditListNameDialogFragment editListNameDialogFragment = new EditListNameDialogFragment();
-        Bundle bundle = EditListDialogFragment.newInstanceHelper(shoppingList,
-                R.layout.dialog_edit_list, listId);
+        Bundle bundle = EditListDialogFragment.newInstanceHelper(shoppingList,  R.layout.dialog_edit_list, listId);
         bundle.putString(Constants.KEY_LIST_NAME, shoppingList.getListName());
+        editListNameDialogFragment.setArguments(bundle);
+        return editListNameDialogFragment;
+    }*/
+
+    public static EditListNameDialogFragment newInstance(Restaurant restaurant, String listId) {
+        EditListNameDialogFragment editListNameDialogFragment = new EditListNameDialogFragment();
+        Bundle bundle = EditListDialogFragment.newInstanceHelper(restaurant,  R.layout.dialog_edit_list, listId);
+        bundle.putString(Constants.KEY_LIST_NAME, restaurant.getName());
         editListNameDialogFragment.setArguments(bundle);
         return editListNameDialogFragment;
     }
