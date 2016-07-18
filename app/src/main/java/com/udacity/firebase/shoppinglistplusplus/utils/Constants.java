@@ -18,10 +18,12 @@ public final class Constants {
     /**
      * Constants for Firebase object properties
      */
-    public static final String FIREBASE_PROPERTY_LIST_NAME = "listName";
+//    public static final String FIREBASE_PROPERTY_LIST_NAME = "listName";
+    public static final String FIREBASE_PROPERTY_LIST_NAME = "name";
     public static final String FIREBASE_PROPERTY_TIMESTAMP_LAST_CHANGED = "timestampLastChanged";
     public static final String FIREBASE_PROPERTY_TIMESTAMP = "timestamp";
-    public static final String FIREBASE_PROPERTY_ITEM_NAME = "itemName";
+//    public static final String FIREBASE_PROPERTY_ITEM_NAME = "itemName";
+    public static final String FIREBASE_PROPERTY_ITEM_NAME = "name";
 
     /**
      * Constants for Firebase URL
