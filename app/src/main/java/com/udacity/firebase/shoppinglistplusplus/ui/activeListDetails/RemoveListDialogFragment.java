@@ -10,6 +10,7 @@ import android.util.Log;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.Restaurant;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingList;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
@@ -25,7 +26,14 @@ public class RemoveListDialogFragment extends DialogFragment {
     /**
      * Public static constructor that creates fragment and passes a bundle with data into it when adapter is created
      */
-    public static RemoveListDialogFragment newInstance(ShoppingList shoppingList, String listId) {
+    /*public static RemoveListDialogFragment newInstance(ShoppingList shoppingList, String listId) {
+        RemoveListDialogFragment removeListDialogFragment = new RemoveListDialogFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.KEY_LIST_ID, listId);
+        removeListDialogFragment.setArguments(bundle);
+        return removeListDialogFragment;
+    }*/
+    public static RemoveListDialogFragment newInstance(Restaurant restaurant, String listId) {
         RemoveListDialogFragment removeListDialogFragment = new RemoveListDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putString(Constants.KEY_LIST_ID, listId);
