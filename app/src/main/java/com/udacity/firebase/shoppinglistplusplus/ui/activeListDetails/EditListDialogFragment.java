@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.Restaurant;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingList;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
@@ -29,11 +30,17 @@ public abstract class EditListDialogFragment extends DialogFragment {
      * Helper method that creates a basic bundle of all of the information needed to change
      * values in a shopping list.
      *
-     * @param shoppingList
+     * @param restaurant
      * @param resource
      * @return
      */
-    protected static Bundle newInstanceHelper(ShoppingList shoppingList, int resource, String listId) {
+    /*protected static Bundle newInstanceHelper(ShoppingList shoppingList, int resource, String listId) {
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.KEY_LIST_ID, listId);
+        bundle.putInt(Constants.KEY_LAYOUT_RESOURCE, resource);
+        return bundle;
+    }*/
+    protected static Bundle newInstanceHelper(Restaurant restaurant, int resource, String listId) {
         Bundle bundle = new Bundle();
         bundle.putString(Constants.KEY_LIST_ID, listId);
         bundle.putInt(Constants.KEY_LAYOUT_RESOURCE, resource);
