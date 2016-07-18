@@ -12,6 +12,7 @@ import com.firebase.client.Query;
 import com.firebase.client.ServerValue;
 import com.firebase.ui.FirebaseListAdapter;
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.Restaurant;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingList;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingListItem;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
@@ -23,7 +24,8 @@ import java.util.HashMap;
  * Populates list_view_shopping_list_items inside ActiveListDetailsActivity
  */
 public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem> {
-    private ShoppingList mShoppingList;
+//    private ShoppingList mShoppingList;
+    private Restaurant mRestaurant;
     private String mListId;
 
     /**
@@ -39,10 +41,15 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
     /**
      * Public method that is used to pass shoppingList object when it is loaded in ValueEventListener
      */
-    public void setShoppingList(ShoppingList shoppingList) {
+    /* public void setShoppingList(ShoppingList shoppingList) {
         this.mShoppingList = shoppingList;
         this.notifyDataSetChanged();
+    }*/
+    public void setRestaurant(Restaurant mRestaurant) {
+        this.mRestaurant = mRestaurant;
+        this.notifyDataSetChanged();
     }
+
 
     /**
      * Protected method that populates the view attached to the adapter (list_view_friends_autocomplete)
