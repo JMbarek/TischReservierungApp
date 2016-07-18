@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.firebase.client.Firebase;
 import com.firebase.client.ServerValue;
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.Restaurant;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingList;
 import com.udacity.firebase.shoppinglistplusplus.model.ShoppingListItem;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
@@ -22,10 +23,18 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
     /**
      * Public static constructor that creates fragment and passes a bundle with data into it when adapter is created
      */
-    public static AddListItemDialogFragment newInstance(ShoppingList shoppingList, String listId) {
+    /*public static AddListItemDialogFragment newInstance(ShoppingList shoppingList, String listId) {
         AddListItemDialogFragment addListItemDialogFragment = new AddListItemDialogFragment();
 
         Bundle bundle = newInstanceHelper(shoppingList, R.layout.dialog_add_item, listId);
+        addListItemDialogFragment.setArguments(bundle);
+
+        return addListItemDialogFragment;
+    }*/
+    public static AddListItemDialogFragment newInstance(Restaurant restaurant, String listId) {
+        AddListItemDialogFragment addListItemDialogFragment = new AddListItemDialogFragment();
+
+        Bundle bundle = newInstanceHelper(restaurant, R.layout.dialog_add_item, listId);
         addListItemDialogFragment.setArguments(bundle);
 
         return addListItemDialogFragment;
