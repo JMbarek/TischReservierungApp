@@ -6,8 +6,18 @@ package com.udacity.firebase.shoppinglistplusplus.model;
  * @date today
  */
 public class RestaurantItem {
-    private String itemName;
-    private String freiTische;
+    private String name;
+    private String ft;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getFt() {
+        return ft;
+    }
+
+
 
     /**
      * Required public constructor
@@ -21,17 +31,13 @@ public class RestaurantItem {
      * @param itemName
      */
     public RestaurantItem(String itemName) {
-        this.itemName = itemName;
+        this.name = itemName;
         /**
          * This is a default value until we can differentiate users.
          * Which will be soon, I promise.
          */
-        this.freiTische = "44";
+        this.ft = "44";
     }
 
-    public String getItemName() { return itemName; }
 
-    public String getFreiTische() {
-        return freiTische;
-    }
 }
